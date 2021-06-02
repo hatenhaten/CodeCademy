@@ -39,8 +39,11 @@ const returnRandBase = () => {
         const percentageTo2Deci = percentOfDNAshared.toFixed(2);
         console.log(`${this.specimenNum} and ${otherOrg.specimenNum} have ${percentageTo2Deci}% DNA in common.`);
       },
-
-      }
+      willLikelySurvive() {
+          const CorG = this.dna.filter(base => base == 'C' || base == 'G');
+          return CorG.length / this.dna.length >= 0.6;
+          }
+        }
     }
   
   
@@ -51,8 +54,9 @@ const returnRandBase = () => {
   // console.log(returnRandBase());
   // console.log(mockUpStrand());
   // console.log(pAequorFactory(1, mockUpStrand()));
-  let pA1 = pAequorFactory(1, mockUpStrand());
-  let pA2 = pAequorFactory(2, mockUpStrand())
-  // console.log(pA1.dna);
-  // console.log(pA1.mutate());
-  console.log(pA1.compareDNA(pA2));
+    let pA1 = pAequorFactory(1, mockUpStrand());
+//   let pA2 = pAequorFactory(2, mockUpStrand())
+//   // console.log(pA1.dna);
+//   // console.log(pA1.mutate());
+//   console.log(pA1.compareDNA(pA2));
+    console.log(pA1.willLikelySurvive());
