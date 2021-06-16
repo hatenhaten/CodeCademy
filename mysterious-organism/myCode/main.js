@@ -45,6 +45,20 @@ const returnRandBase = () => {
           }
         }
     }
+
+    // Create array of 30 organisms that will likely survive
+    const survivingSpecimen = [];
+    let idCounter = 1;
+
+    while (survivingSpecimen.length <= 30) {
+      let newOrg = pAequorFactory(idCounter, mockUpStrand());
+      if (newOrg.willLikelySurvive()) {
+        survivingSpecimen.push(newOrg);
+      }
+      idCounter++;
+    };
+
+    
   
   
   
@@ -54,9 +68,10 @@ const returnRandBase = () => {
   // console.log(returnRandBase());
   // console.log(mockUpStrand());
   // console.log(pAequorFactory(1, mockUpStrand()));
-    let pA1 = pAequorFactory(1, mockUpStrand());
-//   let pA2 = pAequorFactory(2, mockUpStrand())
-//   // console.log(pA1.dna);
-//   // console.log(pA1.mutate());
-//   console.log(pA1.compareDNA(pA2));
-    console.log(pA1.willLikelySurvive());
+//     let pA1 = pAequorFactory(1, mockUpStrand());
+// //   let pA2 = pAequorFactory(2, mockUpStrand())
+// //   // console.log(pA1.dna);
+// //   // console.log(pA1.mutate());
+// //   console.log(pA1.compareDNA(pA2));
+//     console.log(pA1.willLikelySurvive());
+    console.log(survivingSpecimen);
